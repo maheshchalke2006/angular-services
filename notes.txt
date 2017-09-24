@@ -1,0 +1,13 @@
+Creating angular forms
+
+Form validations - inbuild.
+
+1. Simple
+- Control by html
+- No JS/TS code required
+- Only one way
+- Required E2E testing (HTML)
+
+2. Model Form
+
+3. Reactive Form
