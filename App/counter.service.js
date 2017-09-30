@@ -7,11 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var Subject_1 = require("rxjs/Subject");
 var CounterService = /** @class */ (function () {
     function CounterService() {
         this.Shared_initialValue = 5;
+        this.AutoRefreshValueSubject = new Subject_1.Subject();
         console.log('Counter Service created');
     }
+    CounterService.prototype.SetValue = function (value) {
+        this.AutoRefreshValueSubject.next(value);
+    };
     CounterService = __decorate([
         core_1.Injectable()
     ], CounterService);

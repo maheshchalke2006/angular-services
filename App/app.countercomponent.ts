@@ -5,7 +5,7 @@ import {CounterService} from "./counter.service"
     selector:'mycounter',
     template:`
         <h3> My Counter </h3>
-        <input type="text" [(ngModel)] ="value"/>
+        <input type="text" [(ngModel)] ="value"  (keypress)="SetValue()" />
         <button (click)="Add()" [disabled] = "value>=maxvalue">Click</button>
         Value {{value}} Minimum Value {{minvalue}} Maxvalue{{maxvalue}}
 
@@ -16,9 +16,11 @@ import {CounterService} from "./counter.service"
 
 export class AppCounterComponent{
 
-    SetValue(){
+    SetValue(){     
+        console.log('@@@@@');
         this.contextService.Shared_initialValue = 199;
         //console.log(this.contextService.Shared_initialValue);
+        this.contextService.SetValue(this.value);
     }
     
     constructor(

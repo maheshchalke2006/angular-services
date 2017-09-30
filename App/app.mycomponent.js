@@ -20,6 +20,7 @@ var AppMyComponent = /** @class */ (function () {
     }
     AppMyComponent.prototype.DisplayData = function (data) {
         console.log('clicked' + data);
+        //this.contextService.Shared_initialValue
     };
     AppMyComponent = __decorate([
         core_1.Component({

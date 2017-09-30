@@ -33,5 +33,6 @@ export class AppMyComponent{
 
      DisplayData(data){
         console.log('clicked'+data);
+        //this.contextService.Shared_initialValue
     }
 }

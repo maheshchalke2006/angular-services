@@ -22,8 +22,10 @@ var AppCounterComponent = /** @class */ (function () {
         console.log('AppComponent Created from counter component');
     }
     AppCounterComponent.prototype.SetValue = function () {
+        console.log('@@@@@');
         this.contextService.Shared_initialValue = 199;
         //console.log(this.contextService.Shared_initialValue);
+        this.contextService.SetValue(this.value);
     };
     AppCounterComponent.prototype.Add = function () {
         this.value++;
@@ -41,7 +43,7 @@ var AppCounterComponent = /** @class */ (function () {
     AppCounterComponent = __decorate([
         core_1.Component({
             selector: 'mycounter',
-            template: "\n        <h3> My Counter </h3>\n        <input type=\"text\" [(ngModel)] =\"value\"/>\n        <button (click)=\"Add()\" [disabled] = \"value>=maxvalue\">Click</button>\n        Value {{value}} Minimum Value {{minvalue}} Maxvalue{{maxvalue}}\n\n        <button (click)=\"SetValue()\">Set value</button>\n    ",
+            template: "\n        <h3> My Counter </h3>\n        <input type=\"text\" [(ngModel)] =\"value\"  (keypress)=\"SetValue()\" />\n        <button (click)=\"Add()\" [disabled] = \"value>=maxvalue\">Click</button>\n        Value {{value}} Minimum Value {{minvalue}} Maxvalue{{maxvalue}}\n\n        <button (click)=\"SetValue()\">Set value</button>\n    ",
             inputs: ['maxvalue:maximumvalue'],
         }),
         __param(0, core_1.Inject(counter_service_1.CounterService))

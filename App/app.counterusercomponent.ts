@@ -17,12 +17,22 @@ import {CounterService} from './counter.service'
 })
 
 export class AppCounterUserComponent{
+    v:any
     GetValue(){
         console.log(this.contextService.Shared_initialValue);
+
+        this.contextService
+        .AutoRefreshValueSubject
+        .subscribe((data)=>{
+            console.log(data);  
+            this.v=data;
+        })
     }    
+
         constructor(
                 @Inject(CounterService)private contextService:CounterService
         ){
                 console.log('AppComponent Created');
         }
 }
+    

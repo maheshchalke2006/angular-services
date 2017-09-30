@@ -17,7 +17,14 @@ var AppCounterUserComponent = /** @class */ (function () {
         console.log('AppComponent Created');
     }
     AppCounterUserComponent.prototype.GetValue = function () {
+        var _this = this;
         console.log(this.contextService.Shared_initialValue);
+        this.contextService
+            .AutoRefreshValueSubject
+            .subscribe(function (data) {
+            console.log(data);
+            _this.v = data;
+        });
     };
     AppCounterUserComponent = __decorate([
         core_1.Component({
